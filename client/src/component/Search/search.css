@@ -1,0 +1,10 @@
+#searchJumbo{
+    background-color: pink;
+    margin-left: 5px;
+    padding: 3%;
+}
+.searchNames{
+    display: flex;
+    justify-content: left;
+    margin-left: 45px;
+}
