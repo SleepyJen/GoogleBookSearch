@@ -1,16 +1,41 @@
 import React from 'react'
 
-function Books() {
+function Books(props) {
+    const books = props.data.books[0];
+    console.log(books);
+
     return (
         <div>
-            <div class="card w-75">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        </div>
+            {books != undefined ?
+                (<div>
+                    {
+                        books.map(result => (
+                            console.log(result.id),
+                            <div className="card mb-3" key={result.id}>
+                                <div className="row">
+                                    <div className="col-md-2">
+                                        <img alt={result.title} className="img-fluid" src={result.image} />
+                                    </div>
+                                    <div className="col-md-10">
+                                        <div className="card-body">
+                                            <h5 className="card-title">{result.title}</h5>
+                                            <h6> by {result.authors}</h6>
+                                            <p className="card-text">{result.description}</p>
+                                            <div>
+                                                <a href={result.link} className="btn btn-success mt-3" target="_blank" >View</a>
+                                                <button className="btn btn-warning mt-3 ml-3" >Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }</div>)
+                :
+                (<div></div>)
+            }
+        </div >
     )
 }
 
