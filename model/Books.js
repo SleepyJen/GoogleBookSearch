@@ -17,7 +17,10 @@ const BooksSchema = new Schema({
         type: mongoose.SchemaTypes.Url
     },
     link: {
-        type: mongoose.SchemaType.Url
+        type: mongoose.SchemaTypes.Url
+    },
+    bookId: {
+        type: String
     }
 });
 

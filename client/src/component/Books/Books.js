@@ -6,11 +6,10 @@ function Books(props) {
 
     return (
         <div>
-            {books != undefined ?
+            {books !== undefined ?
                 (<div>
                     {
                         books.map(result => (
-                            console.log(result.id),
                             <div className="card mb-3" key={result.id}>
                                 <div className="row">
                                     <div className="col-md-2">
@@ -22,7 +21,7 @@ function Books(props) {
                                             <h6> by {result.authors}</h6>
                                             <p className="card-text">{result.description}</p>
                                             <div>
-                                                <a href={result.link} className="btn btn-success mt-3" target="_blank" >View</a>
+                                                <a href={result.link} className="btn btn-success mt-3" target="blank" >View Book</a>
                                                 <button className="btn btn-warning mt-3 ml-3" >Save
                                                 </button>
                                             </div>

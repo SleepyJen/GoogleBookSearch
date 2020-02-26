@@ -27,6 +27,9 @@ connection.once('open', () => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const apiRoute = require('./controller/apiRoutes');
+app.use('/api', apiRoute);
+
 app.listen(PORT, () => {
     console.log('\n-------------------------------'.rainbow);
     console.log(`Listening on http://localhost:${PORT}`.blue);
