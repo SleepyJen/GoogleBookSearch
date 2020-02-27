@@ -43,7 +43,7 @@ function Search() {
                     search();
                 }} className="btn btn-primary mt-2">Search</button></div>
             </div>
-            <div className="Books">
+            <div className="Books mt-2">
                 <Books data={booksLists} />
             </div>
         </div >

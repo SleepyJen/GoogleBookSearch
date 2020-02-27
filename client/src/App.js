@@ -5,6 +5,7 @@ import Nav from './component/Nav/Nav'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Jumbotron from './component/Jumbo/Jumbotron';
 import Search from './component/Search/Search'
+import Saved from './component/Saved/Saved'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             </div>
           </Route>
           <Route exact path="/saved">
+            <Saved />
           </Route>
         </Switch>
       </Router>

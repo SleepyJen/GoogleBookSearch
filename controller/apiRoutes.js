@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../model');
 
 router.get('/', (req, res) => {
-    db.Books.find().then(result => {
+    db.Books.find({}).then(result => {
         res.json(result);
     });
 });
@@ -31,6 +31,18 @@ router.post('/saveAuthors/:id', (req, res) => {
             }
         }
     ).then(result => {
+        res.send(result);
+    });
+});
+
+router.delete('/delete/:id', (req, res) => {
+    db.Books.deleteOne({ bookId: req.params.id }).then(result => {
+        res.send(result);
+    });
+});
+
+router.delete('/deleteById/:id', (req, res) => {
+    db.Books.deleteOne({ _id: req.params.id }).then(result => {
         res.send(result);
     });
 });
