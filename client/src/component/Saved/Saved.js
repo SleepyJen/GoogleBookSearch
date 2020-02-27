@@ -18,7 +18,8 @@ function Saved() {
             });
         });
     }
-    let books = value.savedBooks.data;
+    let books = !value.savedBooks.data ? [] : value.savedBooks.data;
+    console.log(books)
     return (
         <div>
             {books !== undefined ? (
