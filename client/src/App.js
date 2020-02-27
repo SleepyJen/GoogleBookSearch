@@ -14,14 +14,14 @@ function App() {
         <Nav />
         <br />
         <Switch>
+          <Route exact path="/saved">
+            <Saved />
+          </Route>
           <Route exact path="/">
             <div className="container">
               <Jumbotron />
               <Search />
             </div>
-          </Route>
-          <Route exact path="/saved">
-            <Saved />
           </Route>
         </Switch>
       </Router>
