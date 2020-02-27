@@ -26,9 +26,7 @@ function Saved() {
                     <h4>Saved Books</h4>
                     {
                         books.map(results => (
-                            console.log(results.bookId),
-
-                            <div className="card mb-3" key={results.bookId}>
+                            <div className="card mb-3" key={results._id}>
                                 <div className="row">
                                     <div className="col-md-2">
                                         <img alt={results.title} className="img-fluid" src={results.image} />
