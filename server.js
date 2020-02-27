@@ -8,12 +8,7 @@ const connection = mongoose.connection;
 const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/react_books';
 
 const Colors = require('colors');
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
-}
+
 
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
@@ -31,8 +26,17 @@ connection.once('open', () => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+
 const apiRoute = require('./controller/apiRoutes');
 app.use('/api', apiRoute);
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 app.listen(PORT, () => {
     console.log('\n-------------------------------'.rainbow);

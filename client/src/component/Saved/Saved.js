@@ -4,9 +4,9 @@ import axios from 'axios';
 function Saved() {
     const [value, modifier] = useState({ savedBooks: [] });
     useEffect(() => {
-        axios.get('/api/').then(result => {
+        axios.get('/api').then(result => {
             modifier({ savedBooks: result });
-        });
+        }).catch(err => console.log(err));
     }, []);
 
     function deleteBook(e) {
@@ -19,7 +19,7 @@ function Saved() {
         });
     }
     let books = !value.savedBooks.data ? [] : value.savedBooks.data;
-    console.log(books)
+
     return (
         <div>
             {books !== undefined ? (
